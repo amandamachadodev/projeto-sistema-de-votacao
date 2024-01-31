@@ -6,28 +6,19 @@ import java.util.Scanner;
  * Classe principal.
  */
 public class Principal {
+
+  /**
+   * metodo main.
+   */
   public static void main(String[] args) {
     GerenciamentoVotacao gerenciamentoVotacao = new GerenciamentoVotacao();
-    Scanner input = new Scanner(System.in);
     int cadastrarCandidato = 0;
-    int cadastrarEleitor = 0;
-    int cadastrarVoto = 0;
+    Scanner input = new Scanner(System.in);
     String menuCandidato = """
         Cadastrar pessoa candidata?
         1 - Sim
         2 - Não
         Entre com o número correspondente à opção desejada:""";
-    String menuEleitor = """
-        Cadastrar pessoa eleitora?
-        1 - Sim
-        2 - Não
-        Entre com o número correspondente à opção desejada:""";
-    String menuVotacao = """
-        Entre com o número correspondente à opção desejada:
-         1 - Votar
-         2 - Resultado Parcial
-         3 - Finalizar Votação""";
-
     System.out.println(menuCandidato);
     cadastrarCandidato = Integer.parseInt(input.next());
     while (cadastrarCandidato == 1) {
@@ -40,6 +31,12 @@ public class Principal {
       cadastrarCandidato = Integer.parseInt(input.next());;
     }
 
+    String menuEleitor = """
+        Cadastrar pessoa eleitora?
+        1 - Sim
+        2 - Não
+        Entre com o número correspondente à opção desejada:""";
+    int cadastrarEleitor = 0;
     System.out.println(menuEleitor);
     cadastrarEleitor = Integer.parseInt(input.next());
     while (cadastrarEleitor == 1) {
@@ -53,6 +50,12 @@ public class Principal {
 
     }
 
+    int cadastrarVoto = 0;
+    String menuVotacao = """
+        Entre com o número correspondente à opção desejada:
+         1 - Votar
+         2 - Resultado Parcial
+         3 - Finalizar Votação""";
     System.out.println(menuVotacao);
     cadastrarVoto = Integer.parseInt(input.next());
     while (cadastrarVoto == 1 | cadastrarVoto == 2) {
@@ -62,13 +65,12 @@ public class Principal {
         System.out.println("Entre com o número da pessoa candidata:");
         int numeroCandidato = Integer.parseInt(input.next());
         gerenciamentoVotacao.votar(cpf, numeroCandidato);
-        System.out.println(menuVotacao);
-        cadastrarVoto = Integer.parseInt(input.next());
       } else {
         gerenciamentoVotacao.mostrarResultado();
         System.out.println(menuVotacao);
-        cadastrarVoto = Integer.parseInt(input.next());;
       }
+      System.out.println(menuVotacao);
+      cadastrarVoto = Integer.parseInt(input.next());
     }
     gerenciamentoVotacao.mostrarResultado();
     input.close();
