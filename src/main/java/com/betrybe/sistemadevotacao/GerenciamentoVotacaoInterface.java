@@ -1,7 +1,7 @@
 package com.betrybe.sistemadevotacao;
 
 /**
- * Interface para o gerenciamento de votação.
+ * 'Interface' para o gerenciamento de votação.
  */
 public interface GerenciamentoVotacaoInterface {
 
